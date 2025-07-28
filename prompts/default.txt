@@ -12,3 +12,5 @@ Also, check if the commit message accurately describes the changes in the diff
 and perform a spell check on the message.
 
 Finally, suggest improvements to the commit message if any.
+
+Wrap the answer to 80 characters.
