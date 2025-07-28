@@ -1,0 +1,21 @@
+*commit_check.txt*	For Vim version 8.0 and later.
+
+==============================================================================
+CONTENTS                                      *commit-check-contents*
+
+  1. Introduction...........................|commit-check-introduction|
+  2. Usage..................................|commit-check-usage|
+
+==============================================================================
+INTRODUCTION                                  *commit-check-introduction*
+
+This plugin allows you to check your commit messages using the Gemini CLI.
+It sends your commit message and staged changes to Gemini for review.
+
+==============================================================================
+USAGE                                         *commit-check-usage*
+
+:GeminiCommitCheck
+  When you are in a commit message buffer, run this command to get feedback
+  on your commit message. The feedback will be displayed in a new vertical
+  split.
