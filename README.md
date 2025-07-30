@@ -9,6 +9,11 @@ commit messages.
 *   [Google Gemini CLI](https://cloud.google.com/gemini/docs/codeassist/gemini-cli) installed and configured on your system.
 *   [Google Gemini API key](https://ai.google.dev/gemini-api/docs/api-key) configured on your system.
 
+For best results, it is recommended to use verbose commits, i.e. either use `git
+commit -v` or have `commit.verbose=true` in Git config. If verbose commits are
+not used, the plugin will obtain the changes to be committed by running `git
+diff --staged` which will not work when amending or rebasing commits.
+
 ## Usage
 
 The plugin can be used by running the command `:GeminiCommitCheck` while writing

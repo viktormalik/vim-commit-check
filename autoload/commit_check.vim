@@ -28,16 +28,20 @@ function! commit_check#check() abort
     return
   endif
 
-  let commit_message = getline(1, '$')
-  let git_diff = system('git diff --staged')
   let prompt_path = g:commit_check_root_dir . '/prompts/default.txt'
   let prompt = readfile(prompt_path)
 
+  let commit_message = getline(1, '$')
   let full_prompt = join(prompt, "\n") . "\n\n" .
         \ "--- COMMIT MESSAGE ---\n" .
-        \ join(commit_message, "\n") . "\n\n" .
-        \ "--- GIT DIFF ---\n" .
-        \ git_diff
+        \ join(commit_message, "\n")
+
+  let separator_line_index = match(commit_message, '^# ------------------------ >8 ------------------------$')
+  if separator_line_index == -1
+    let git_diff = system('git diff --staged')
+    let full_prompt = full_prompt . "\n\n" .
+          \ "--- GIT DIFF ---\n" . git_diff
+  endif
 
   vnew
   let s:output_bufnr = bufnr('%')
